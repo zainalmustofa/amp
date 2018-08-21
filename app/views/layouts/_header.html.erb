@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default" id="NavBar">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle toggle-menu menu-left push-body visible-xs visible-sm visible-md" data-toggle="collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar l1"></span>
+        <span class="icon-bar l2"></span>
+        <span class="icon-bar l3"></span>
+      </button>
+      <div id="Logo">
+        <%= link_to root_path do %>
+          <%= image_tag("logos/logo-light.png", class: "logo-light", alt: "Sejasa.com") %>
+          <%= image_tag("logos/logo-dark-240x45.png", class: "logo-dark", alt: "Sejasa.com") %>
+        <% end %>
+      </div>
+
+      <ul class="mobile-top-nav visible-xs visible-sm visible-md">
+        <li><%= link_to "#" do %><i class="icon-albums"></i><% end %></li>
+      </ul>
+    </div>
+  </div><!-- /.container -->
+</nav>  
