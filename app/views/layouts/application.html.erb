@@ -35,7 +35,7 @@ limitations under the License.
 <script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async=""></script>
 <script custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async=""></script>
 <script custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js" async=""></script>
-<script custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js" async=""></script>
+<script custom-element="amp-date-picker" src="https://cdn.ampproject.org/v0/amp-date-picker-0.1.js" async=""></script>
 
 <%= render 'layouts/css' %>
 </head>
@@ -97,44 +97,72 @@ limitations under the License.
         <b>Kolom bertanda * wajib diisi</b>
         </i>
         </p>
-        <span class="ampstart-hint block mb3">SERVINGS 4</span>
-        <ul class="mb4">
-          <li>2 bunches of strawberries</li>
-          <li>1 lemon</li>
-          <li>1 bunch of mint</li>
-          <li>1 piece of ginger chopped</li>
-          <li>1 bottle of sparkling water</li>
-        </ul>
+        <div style="margin-bottom: 5px;" class="form-group radio_buttons required service_ac_request_question1">
+          <label class="radio_buttons required"><abbr title="required">*</abbr> Keluhan atau Masalah pada AC Anda?</label>
+          <input type="hidden" name="service_ac_request[question1]" value=""><span class="radio"><label for="service_ac_request_question1_ac_tidak_dingin"><input onclick="conditionalRadioCheckQ1();" class="radio_buttons required" type="radio" value="AC tidak dingin" name="service_ac_request[question1]" id="service_ac_request_question1_ac_tidak_dingin">AC tidak dingin</label></span><span class="radio"><label for="service_ac_request_question1_ac_berisik"><input onclick="conditionalRadioCheckQ1();" class="radio_buttons required" type="radio" value="AC berisik" name="service_ac_request[question1]" id="service_ac_request_question1_ac_berisik">AC berisik</label></span><span class="radio"><label for="service_ac_request_question1_ac_bocor"><input onclick="conditionalRadioCheckQ1();" class="radio_buttons required" type="radio" value="AC bocor" name="service_ac_request[question1]" id="service_ac_request_question1_ac_bocor">AC bocor</label></span><span class="radio"><label for="service_ac_request_question1_lainnya"><input onclick="conditionalRadioCheckQ1();" class="radio_buttons required" type="radio" value="Lainnya" name="service_ac_request[question1]" id="service_ac_request_question1_lainnya">Lainnya</label></span><span class="radio"><label for="service_ac_request_question1_tidak_ada"><input onclick="conditionalRadioCheckQ1();" class="radio_buttons required" type="radio" value="Tidak ada" name="service_ac_request[question1]" id="service_ac_request_question1_tidak_ada">Tidak ada</label></span>
+        </div>
 
-      <section class="mb4">
-        <h2 class="mb3">Instructions</h2>
+        <div style="margin-bottom: 5px;" class="form-group radio_buttons required service_ac_request_question2">
+          <label class="radio_buttons required"><abbr title="required">*</abbr> Layanan yang Anda butuhkan?</label><input type="hidden" name="service_ac_request[question2]" value=""><span class="radio"><label for="service_ac_request_question2_cuci_ac"><input onclick="conditionalRadioCheckQ2();executeMe();" class="radio_buttons required" type="radio" value="Cuci AC" name="service_ac_request[question2]" id="service_ac_request_question2_cuci_ac">Cuci AC</label></span><span class="radio"><label for="service_ac_request_question2_perbaikan_ac"><input onclick="conditionalRadioCheckQ2();executeMe();" class="radio_buttons required" type="radio" value="Perbaikan AC" name="service_ac_request[question2]" id="service_ac_request_question2_perbaikan_ac">Perbaikan AC</label></span><span class="radio"><label for="service_ac_request_question2_tambahisi_freon"><input onclick="conditionalRadioCheckQ2();executeMe();" class="radio_buttons required" type="radio" value="Tambah/isi freon" name="service_ac_request[question2]" id="service_ac_request_question2_tambahisi_freon">Tambah/isi freon</label></span><span class="radio"><label for="service_ac_request_question2_bongkar_pasang_ac"><input onclick="conditionalRadioCheckQ2();executeMe();" class="radio_buttons required" type="radio" value="Bongkar pasang AC" name="service_ac_request[question2]" id="service_ac_request_question2_bongkar_pasang_ac">Bongkar pasang AC</label></span><span class="radio"><label for="service_ac_request_question2_bongkar_ac"><input onclick="conditionalRadioCheckQ2();executeMe();" class="radio_buttons required" type="radio" value="Bongkar AC" name="service_ac_request[question2]" id="service_ac_request_question2_bongkar_ac">Bongkar AC</label></span><span class="radio"><label for="service_ac_request_question2_pasang_ac"><input onclick="conditionalRadioCheckQ2();executeMe();" class="radio_buttons required" type="radio" value="Pasang AC" name="service_ac_request[question2]" id="service_ac_request_question2_pasang_ac">Pasang AC</label></span><span class="radio"><label for="service_ac_request_question2_lainnya"><input onclick="conditionalRadioCheckQ2();executeMe();" class="radio_buttons required" type="radio" value="Lainnya" name="service_ac_request[question2]" id="service_ac_request_question2_lainnya">Lainnya</label></span>
+        </div>
 
-        <ol class="">
-          <li class="mb4">Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</li>
-          <li class="mb4"> Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.</li>
-          <li class="mb4"> Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</li>
-          <li class="mb4">Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. </li>
-          <li class="mb4"> Duis leo. Sed fringilla mauris sit  amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue.  Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</li>
-        </ol>
-      </section>
+        <div class="form-group check_boxes required service_ac_request_question3"><label class="check_boxes required">
+          <abbr title="required">*</abbr> Jenis AC yang Anda miliki?</label><input type="hidden" name="service_ac_request[question3][]" value=""><span class="checkbox"><label for="service_ac_request_question3_ac_split"><input class="check_boxes required" required="required" aria-required="true" type="checkbox" value="AC Split" name="service_ac_request[question3][]" id="service_ac_request_question3_ac_split">AC Split</label></span><span class="checkbox"><label for="service_ac_request_question3_ac_central"><input class="check_boxes required" required="required" aria-required="true" type="checkbox" value="AC Central" name="service_ac_request[question3][]" id="service_ac_request_question3_ac_central">AC Central</label></span><span class="checkbox"><label for="service_ac_request_question3_ac_window"><input class="check_boxes required" required="required" aria-required="true" type="checkbox" value="AC Window" name="service_ac_request[question3][]" id="service_ac_request_question3_ac_window">AC Window</label></span><span class="checkbox"><label for="service_ac_request_question3_lainnya"><input class="check_boxes required" required="required" aria-required="true" type="checkbox" value="Lainnya" name="service_ac_request[question3][]" id="service_ac_request_question3_lainnya">Lainnya</label></span><span class="checkbox"><label for="service_ac_request_question3_saya_tidak_tahu"><input class="check_boxes required" required="required" aria-required="true" type="checkbox" value="Saya tidak tahu" name="service_ac_request[question3][]" id="service_ac_request_question3_saya_tidak_tahu">Saya tidak tahu</label></span>
+        </div>
 
-      <section class="recipe-comments">
-        <h2 class="mb3">4 Responses</h2>
-        <ul class="list-reset">
-          <li class="mb4">
-            <h3 class="ampstart-subtitle">Sriram</h3>
-            <span class="h5 block mb3">02.24.17 at 6:01 pm</span>
-            <p>This is perfect for a summer patio party. Thanks for another great one!</p>
-          </li>
-          <li class="mb4">
-            <h3 class="ampstart-subtitle">Eric</h3>
-            <span class="h5 block mb3">02.24.17 at 5:14 am</span>
-            <p>These were so good I woke up dreaming about them. Regards, Eric.</p>
-          </li>
-        </ul>
-      </section>
+        <div style="margin-bottom: 5px;" class="form-group check_boxes optional service_ac_request_question4">
+          <label class="check_boxes optional">Berapa Horsepower (PK) AC Anda?</label><input type="hidden" name="service_ac_request[question4][]" value=""><span class="checkbox"><label for="service_ac_request_question4_12_pk"><input onclick="conditionalRadioCheckQ4();" class="check_boxes optional" type="checkbox" value="1/2 PK" name="service_ac_request[question4][]" id="service_ac_request_question4_12_pk">1/2 PK</label></span><span class="checkbox"><label for="service_ac_request_question4_34_pk"><input onclick="conditionalRadioCheckQ4();" class="check_boxes optional" type="checkbox" value="3/4 PK" name="service_ac_request[question4][]" id="service_ac_request_question4_34_pk">3/4 PK</label></span><span class="checkbox"><label for="service_ac_request_question4_1_pk"><input onclick="conditionalRadioCheckQ4();" class="check_boxes optional" type="checkbox" value="1 PK" name="service_ac_request[question4][]" id="service_ac_request_question4_1_pk">1 PK</label></span><span class="checkbox"><label for="service_ac_request_question4_15_pk"><input onclick="conditionalRadioCheckQ4();" class="check_boxes optional" type="checkbox" value="1.5 PK" name="service_ac_request[question4][]" id="service_ac_request_question4_15_pk">1.5 PK</label></span><span class="checkbox"><label for="service_ac_request_question4_2_pk"><input onclick="conditionalRadioCheckQ4();" class="check_boxes optional" type="checkbox" value="2 pk" name="service_ac_request[question4][]" id="service_ac_request_question4_2_pk">2 pk</label></span><span class="checkbox"><label for="service_ac_request_question4_lainnya"><input onclick="conditionalRadioCheckQ4();" class="check_boxes optional" type="checkbox" value="Lainnya" name="service_ac_request[question4][]" id="service_ac_request_question4_lainnya">Lainnya</label></span>
+        </div>
 
-      <div class="ampstart-card max-width-1 pt2">
+        <div style="margin-bottom: 5px;" class="form-group check_boxes optional service_ac_request_question5">
+          <label class="check_boxes optional">Merek AC Anda?</label><input type="hidden" name="service_ac_request[question5][]" value=""><span class="checkbox"><label for="service_ac_request_question5_lg"><input onclick="conditionalRadioCheckQ5();" class="check_boxes optional" type="checkbox" value="LG" name="service_ac_request[question5][]" id="service_ac_request_question5_lg">LG</label></span><span class="checkbox"><label for="service_ac_request_question5_daikin"><input onclick="conditionalRadioCheckQ5();" class="check_boxes optional" type="checkbox" value="Daikin" name="service_ac_request[question5][]" id="service_ac_request_question5_daikin">Daikin</label></span><span class="checkbox"><label for="service_ac_request_question5_sharp"><input onclick="conditionalRadioCheckQ5();" class="check_boxes optional" type="checkbox" value="Sharp" name="service_ac_request[question5][]" id="service_ac_request_question5_sharp">Sharp</label></span><span class="checkbox"><label for="service_ac_request_question5_fujitsu"><input onclick="conditionalRadioCheckQ5();" class="check_boxes optional" type="checkbox" value="Fujitsu" name="service_ac_request[question5][]" id="service_ac_request_question5_fujitsu">Fujitsu</label></span><span class="checkbox"><label for="service_ac_request_question5_panasonic"><input onclick="conditionalRadioCheckQ5();" class="check_boxes optional" type="checkbox" value="Panasonic" name="service_ac_request[question5][]" id="service_ac_request_question5_panasonic">Panasonic</label></span><span class="checkbox"><label for="service_ac_request_question5_lainnya"><input onclick="conditionalRadioCheckQ5();" class="check_boxes optional" type="checkbox" value="Lainnya" name="service_ac_request[question5][]" id="service_ac_request_question5_lainnya">Lainnya</label></span>
+        </div>
+
+        <div class="form-group integer required service_ac_request_question6">
+          <label class="control-label integer required" for="service_ac_request_question6"><abbr title="required">*</abbr> Berapa unit AC yang perlu dikerjakan?</label><div><input class="form-control numeric integer required" onkeyup="executeMe()" required="required" aria-required="true" type="number" step="1" name="service_ac_request[question6]" id="service_ac_request_question6"></div>
+        </div>
+
+        <div class="form-group radio_buttons required service_ac_request_question7">
+          <label class="radio_buttons required"><abbr title="required">*</abbr> Apakah penyedia jasa perlu membawa tangga?</label><input type="hidden" name="service_ac_request[question7]" value=""><span class="radio"><label for="service_ac_request_question7_ya"><input class="radio_buttons required" required="required" aria-required="true" type="radio" value="Ya" name="service_ac_request[question7]" id="service_ac_request_question7_ya">Ya</label></span><span class="radio"><label for="service_ac_request_question7_tidak"><input class="radio_buttons required" required="required" aria-required="true" type="radio" value="Tidak" name="service_ac_request[question7]" id="service_ac_request_question7_tidak">Tidak</label></span>
+        </div>
+
+        <div class="form-group radio_buttons required service_ac_request_question8">
+          <label class="radio_buttons required"><abbr title="required">*</abbr> Apakah jenis properti anda?</label><input type="hidden" name="service_ac_request[question8]" value=""><span class="radio"><label for="service_ac_request_question8_rumah"><input class="radio_buttons required" required="required" aria-required="true" type="radio" value="Rumah" name="service_ac_request[question8]" id="service_ac_request_question8_rumah">Rumah</label></span><span class="radio"><label for="service_ac_request_question8_apartment"><input class="radio_buttons required" required="required" aria-required="true" type="radio" value="Apartment" name="service_ac_request[question8]" id="service_ac_request_question8_apartment">Apartment</label></span><span class="radio"><label for="service_ac_request_question8_kantor"><input class="radio_buttons required" required="required" aria-required="true" type="radio" value="Kantor" name="service_ac_request[question8]" id="service_ac_request_question8_kantor">Kantor</label></span><span class="radio"><label for="service_ac_request_question8_ruko"><input class="radio_buttons required" required="required" aria-required="true" type="radio" value="Ruko" name="service_ac_request[question8]" id="service_ac_request_question8_ruko">Ruko</label></span><span class="radio"><label for="service_ac_request_question8_lainnya"><input class="radio_buttons required" required="required" aria-required="true" type="radio" value="Lainnya" name="service_ac_request[question8]" id="service_ac_request_question8_lainnya">Lainnya</label></span>
+        </div>
+
+        <amp-date-picker id="simple-date-picker"
+          type="single"
+          mode="overlay"
+          layout="container"
+          on="select:AMP.setState({date1: event.date, dateType1: event.id})"
+          format="YYYY-MM-DD"
+          open-after-select
+          input-selector="[name=date1]"
+          class="example-picker space-between">
+          <div class="icon-input"></div>
+          <div class="ampstart-input">
+            <input class="border-none p0"
+              name="date1"
+              placeholder="Pick a date">
+          </div>
+        </amp-date-picker>
+        
+        <div class="form-group string required readonly service_ac_request_question9">
+          <label class="control-label string required" for="datepicker"><abbr title="required">*</abbr> Kapan Anda membutuhkan layanan?</label><div><input class="form-control string required readonly datepicker date-cursor" id="datepicker" readonly="readonly" required="required" aria-required="true" type="text" name="service_ac_request[question9]"></div>
+        </div>
+
+        <div class="form-group select required service_ac_request_question10"><label class="control-label select required" for="service_ac_request_question10">
+          <abbr title="required">*</abbr> Pada pukul berapa Anda membutuhkan layanan?</label><div><select class="form-control select required range-time" required="required" aria-required="true" name="service_ac_request[question10]" id="service_ac_request_question10"><option value=""></option>
+          <option value="09:00 - 12:00">09:00 - 12:00</option>
+          <option value="12:00 - 15:00">12:00 - 15:00</option>
+          <option value="15:00 - 18:00">15:00 - 18:00</option>
+          <option value="18:00 - 21:00">18:00 - 21:00</option>
+          <option value="21:00 - 09:00">21:00 - 09:00</option></select></div>
+        </div>
+
+        <div class="form-group text optional service_ac_request_question11">
+          <label class="control-label text optional" for="service_ac_request_question11">Informasi tambahan</label><div><textarea class="form-control text optional" rows="4" name="service_ac_request[question11]" id="service_ac_request_question11" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 98px;"></textarea><p class="help-block">Jika Anda menjawab ‘lainnya’ sebagai jawaban pada pertanyaan-pertanyaan sebelumnya, harap menjelaskan dengan lengkap di sini. Semakin lengkap informasi yang Anda berikan, semakin akurat penawaran harga yang Anda dapatkan</p></div>
+        </div>
 
 <form method="GET" action="/" target="_top" class="p0 m0 px3 mb4">
 <fieldset class="border-none p0 m0">
