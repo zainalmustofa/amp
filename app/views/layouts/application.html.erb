@@ -35,6 +35,10 @@ limitations under the License.
 <script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async=""></script>
 <script custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async=""></script>
 <script custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js" async=""></script>
+<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 
 <%= render 'layouts/css' %>
 </head>
@@ -191,8 +195,8 @@ limitations under the License.
         </div>
 
         <div class="ampstart-input inline-block relative m0 p0 mb3 ">
-          <input type="text" value="" name="kecamatan" id="ip1" class="block border-none p0 m0" placeholder="Kecamatan atau kelurahan (Bukan alamat lengkap)">
-          <label for="ip1" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">
+          <textarea name="kecamatan" id="ip13" class="block border-none  p0 m0" rows="5"></textarea>
+          <label for="ip13" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">
             Kecamatan
           </label>
         </div>
@@ -203,6 +207,68 @@ limitations under the License.
             No Handphone
           </label>
         </div>
+
+
+        <!--  -->
+        <div class="dropdown-wrap">
+            <label for="products-dropdown">Select your favorite food or beverage. Start typing to filter the results.</label>
+            <div class="product-search select-wrap full-width">
+              <div class="search-container">
+                <input name="products-dropdown"
+                  type="hidden"
+                  [value]="foodId">
+                <input id="query"
+                  name="query"
+                  autocomplete="off"
+                  placeholder="Select a product"
+                  type="text"
+                  class="search-box"
+                  on="input-debounced:AMP.setState({ query: event.value, inputText: event.value, autosuggest: event.value, comboExpanded: true}), autosuggest-list.show"
+                  [value]="inputText || ''"
+                  value="">
+          
+                <button on="tap:autosuggest-list.toggleVisibility, AMP.setState({ comboExpanded: !comboExpanded })"
+                  class="search-submit"
+                  type="button">
+                  <i [class]="comboExpanded ? 'arrow-up' : 'arrow-down'"
+                    class="arrow-down"></i>
+                </button>
+              </div>
+              <amp-list class="autosuggest-box"
+                single-item
+                items="."
+                layout="fixed-height"
+                height="350"
+                src="/test.json"
+                id="autosuggest-list"
+                hidden>
+                <template type="amp-mustache">
+                  <amp-selector class="dropdown-selector"
+                    keyboard-select-mode="focus"
+                    layout="container"
+                    on="select:AMP.setState({
+                                                    query: '',
+                                                    inputText: event.targetOption.split(',')[1],
+                                                    foodId: event.targetOption.split(',')[0],
+                                                    comboExpanded: false
+                                                }),
+                                                autosuggest-list.hide">
+                    {{#items}}
+                    <div class="select-option no-outline {{Level}}"
+                      [class]="'select-option no-outline {{Level}} ' + (query == null || '{{LowerCaseTitle}}'.indexOf(query.toLowerCase()) >= 0 || '{{ParentCategoryTitle}}'.indexOf(query.toLowerCase()) >= 0 ? '' : 'hidden')"
+                      role="option"
+                      tabindex="0"
+                      on="tap:autosuggest-list.hide"
+                      option="{{Code}},{{Title}}">{{Title}}</div>
+                    {{/items}}
+                  </amp-selector>
+                </template>
+              </amp-list>
+          
+            </div>
+          </div>
+        <!--  -->
+
 
         <div class="ampstart-input inline-block relative m0 p0 mb3 ">
           <input type="text" value="" name="referal_code" id="ip1" class="block border-none p0 m0" placeholder="Kode Promo">
